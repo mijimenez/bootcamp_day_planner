@@ -12,24 +12,25 @@
 <body>
 
 <main>
-    <div class="container header">
-        <div class="row header-wrapper">
-            <h1>Welcome to My Day Planner</h1>
-            <p>Today's date: <span id="todaysDate"></span></p>
+    <div class="jumbotron jumbotron-fluid header">
+        <div class="container header-wrapper">
+            <h1 class="display-4">Welcome to My Day Planner</h1>
+            <p class="lead">Today's date: <span id="todaysDate"></span></p>
         </div>
     </div>
 
-    <div class="container">
-        <div class="row">
-            <ul class="list-group w-100">
-                <li class="list-group-item disabled" aria-disabled="true">Cras justo odio</li>
-                <li class="list-group-item">Dapibus ac facilisis in</li>
-                <li class="list-group-item">Morbi leo risus</li>
-                <li class="list-group-item">Porta ac consectetur ac</li>
-                <li class="list-group-item">Vestibulum at eros</li>
-            </ul>
-        </div>
-    </div>
+    <ul class="list-group container">
+        <li class="list-group-item disabled row" aria-disabled="true">
+            <p class="hour col-3">9:00 am</p>
+            <p class="hour col-8">Description...</p>
+            <p class="hour col-1">x</p>
+        </li>
+        <li class="list-group-item row">
+            <p class="hour col-3">9:00 am</p>
+            <p class="hour col-8">Description...</p>
+            <p class="hour col-1">x</p>
+        </li>
+    </ul>
 </main>
     
     <script src="https://cdn.jsdelivr.net/npm/moment@2.24.0/moment.min.js"></script>
