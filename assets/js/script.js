@@ -1,23 +1,29 @@
+// Testing out momentjs - Comment out later
 moment().format();
-
 console.log(moment());
+console.log(moment().format("dddd, MMMM Do YYYY, h:mm:ss a"));
 
 
 
 $(document).ready(function() {
+
+    var currentHour = moment().format("h a");
+    var currentDate = moment().format("dddd, MMMM Do YYYY");
+
+    console.log(currentHour);
+    console.log(currentDate);
+
     // Display date at top of page
-    console.log(moment().format("dddd, MMMM Do YYYY, h:mm:ss a"));
+    $("#todaysDate").text(currentDate);
 
-    $("#todaysDate").text(moment().format("dddd, MMMM Do YYYY"));
-
-    // Create 11 more hour rows
+    // Duplicate 11 more hour rows
     for (var i = 0; i < 8; i++) {
         $("#calendarList li:first-child").clone().appendTo("#calendarList");
         
     }
 
 
-    // Create empty array to store 9-5 hours
+    // Store 9-5 hours into array
     var hours = [];
 
     // Loop through 9-5 hours and push them into array
@@ -32,24 +38,27 @@ $(document).ready(function() {
 
 
     // Store hour slots into array
-    var hourSlots = $("#calendarList li p.hour");
+    var hourSlots = [];
+
+    // Loop through paragraph hour slots and push them into array
+    $("#calendarList li p.hour").each(function (i, e) {
+        hourSlots.push($(e));
+    });
 
     console.log(hourSlots);
 
 
-    // HELP: I need to display each hour from the hours array to each hour slot.
-
     
+    // HELP!
+    // For each hour slot...
+    for (var l = 0; l < hourSlots.length; l++) {
+        // // ...display each hour from the array to each row's hour <p>
+        for (var k = 0; k < hours.length; k++) {
+            hourSlots[l].text(hours[k]);
+        } 
+    }
 
-    // // // Display each hour from the hours array to each hour slot.
-    // for (var l = 0; l < hourSlots.length; l++) {
-    //     hourSlots[l].text(hours[k]);
-    // }
 
-    // // Display each hour from the array to each row's hour <p>
-    // for (var k = 0; k < hours.length; k++) {
-    //     // $("#calendarList li .hour").text(hours[k]);
-    // } 
 
 
 });
