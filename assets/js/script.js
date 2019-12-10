@@ -48,17 +48,23 @@ $(document).ready(function() {
     console.log(hourSlots);
 
 
-    
-    // HELP!
+    // Display each hour to their respective hour slot
     // For each hour slot...
-    for (var l = 0; l < hourSlots.length; l++) {
-        // // ...display each hour from the array to each row's hour <p>
-        for (var k = 0; k < hours.length; k++) {
-            hourSlots[l].text(hours[k]);
-        } 
+    for (var i = 0; i < hourSlots.length; i++) {
+        // ...create a place for the hour to be displayed.
+        hourSlots[i].text("");
+        // For each hour, display them into the hour slot accordingly.
+        for (var i = 0; i < hours.length; i++) {
+            hourSlots[i].text(hours[i]);
+
+            // If hour is equal to current time, make current time row red, all previous hours grey and disabled and all following hours green.
+            if (hourSlots[i].text() === currentHour) {
+                hourSlots[i].parent().attr("style", "background-color:pink;");
+                hourSlots[i].parent().prevAll().attr("style", "background-color:lightgrey;");
+                hourSlots[i].parent().prevAll().addClass("disabled");
+                hourSlots[i].parent().nextAll().attr("style", "background-color:lightgreen;");
+            }
+        }
     }
-
-
-
 
 });
