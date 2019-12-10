@@ -57,14 +57,26 @@ $(document).ready(function() {
         for (var i = 0; i < hours.length; i++) {
             hourSlots[i].text(hours[i]);
 
-            // If hour is equal to current time, make current time row red, all previous hours grey and disabled and all following hours green.
+            // If hour is equal to current time, make current time row blue, all previous hours grey and disabled and all following hours white.
             if (hourSlots[i].text() === currentHour) {
-                hourSlots[i].parent().attr("style", "background-color:pink;");
+                hourSlots[i].parent().attr("style", "background-color:lightblue;");
                 hourSlots[i].parent().prevAll().attr("style", "background-color:lightgrey;");
                 hourSlots[i].parent().prevAll().addClass("disabled");
-                hourSlots[i].parent().nextAll().attr("style", "background-color:lightgreen;");
+                hourSlots[i].parent().nextAll().attr("style", "background-color:white;");
             }
         }
     }
+
+
+    // Local storage
+    var savedTasks = [];
+
+    $(".save-icon").on("click", function(event) {
+        event.preventDefault();
+        var savedText = $.trim($(".input-box")).value;
+        savedTasks.push(savedText);
+
+        localStorage.setItem("savedTasks", JSON.stringify(savedTasks));
+    });
 
 });
