@@ -4,8 +4,30 @@ console.log(moment());
 console.log(moment().format("dddd, MMMM Do YYYY, h:mm:ss a"));
 
 
-
+// Study
 $(document).ready(function() {
+
+    function init() {
+        var plans = {
+            0: "",
+            1: "",
+            2: "",
+            3: "",
+            4: "",
+            5: "",
+            6: "",
+            7: "",
+            8: ""
+        };
+
+        var getPlans = localStorage.getItem("plansStored");
+        if (! getPlans) {
+            localStorage.setItem("plansStored", JSON.stringify(plans));
+        }
+
+        
+    }
+    init();
 
     var currentHour = moment().format("h a");
     var currentDate = moment().format("dddd, MMMM Do YYYY");
@@ -16,11 +38,21 @@ $(document).ready(function() {
     // Display date at top of page
     $("#todaysDate").text(currentDate);
 
-    // Duplicate 11 more hour rows
+    // Duplicate 7 more hour rows
     for (var i = 0; i < 8; i++) {
         $("#calendarList li:first-child").clone().appendTo("#calendarList");
         
     }
+
+
+    // HELP
+    // Add index to each calendar row icon button
+    $("#calendarList li a").map(function(i, calendarRow) {
+        $(this).attr("data-row", i);
+        console.log(this);
+    })
+
+    // Create object for calendar rows
 
 
     // Store 9-5 hours into array
@@ -64,19 +96,31 @@ $(document).ready(function() {
                 hourSlots[i].parent().prevAll().addClass("disabled");
                 hourSlots[i].parent().nextAll().attr("style", "background-color:white;");
             }
+
+            // If any other hour, grey out and disable all rows.
+            else {
+                hourSlots[i].parent().attr("style", "background-color:lightgrey;");
+            }
         }
     }
 
 
-    // Local storage
-    var savedTasks = [];
-
+    // HELP: Local storage
     $(".save-icon").on("click", function(event) {
         event.preventDefault();
-        var savedText = $.trim($(".input-box")).value;
-        savedTasks.push(savedText);
 
-        localStorage.setItem("savedTasks", JSON.stringify(savedTasks));
+        // Tracking which slot is being clicked on based on the icon button data-row number
+        var calendarRowFromButton = $(this).attr("data-row");
+
+        var inputText = $(this).siblings("input").val();
+        // console.log(inputText);
+
+        //Rename & study
+        var localStorageObject = JSON.parse(localStorage.getItem("plansStored"));
+        localStorageObject[calendarRowFromButton] = inputText; //Pass key just like index
+        // console.log(localStorageObject);
+        localStorage.setItem("plansStored", JSON.stringify(localStorageObject));
+        
     });
 
 });
