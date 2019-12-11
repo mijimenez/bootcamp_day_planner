@@ -7,7 +7,7 @@ body {
 }
 
 .disabled .input-box {
-  border: none;
+  border-color: #bbbbbb;
   background-image: none;
   background-color: transparent;
   -webkit-box-shadow: none;
