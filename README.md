@@ -1,5 +1,7 @@
 # bootcamp_day_planner
 
+* GitHub Pages Link: https://mijimenez.github.io/bootcamp_day_planner/
+
 * About:
 
   A simple calendar application that allows a user to save events for each hour of the day.
@@ -30,15 +32,15 @@
 
 * User story:
 
-AS AN employee with a busy schedule
+    As an employee with a busy schedule
 
-I WANT to add important events to a daily planner
+    I want to add important events to a daily planner
 
-SO THAT I can manage my time effectively 
+    So that I can manage my time effectively 
 
 
 * Business context:
 
-Poor time management can result in missed meetings and deadlines or create the appearance of unprofessionalism. A daily planner allows employees to see their day at a glance, schedule time effectively, and improve productivity. 
+    Poor time management can result in missed meetings and deadlines or create the appearance of unprofessionalism. A daily planner allows employees to see their day at a glance, schedule time effectively, and improve productivity. 
 
 
