@@ -1,15 +1,6 @@
 var currentDate = null;
 var currentHour = moment().format('h a');
 
-// HELP: Is there a better way to do this?
-// Refresh page every 10 seconds to dynamically track and color code rows as hours pass.
-function autoRefreshPage() {
-    window.location = window.location.href;
-}
-setInterval('autoRefreshPage()', 10000);
-
-
-
 $(document).ready(function() {
     function init() {
 
@@ -43,15 +34,17 @@ $(document).ready(function() {
 
         displayInputs(getPlans);
 
-        // Update date on page every second
-        currentDate = $("#todaysDate");
-        displayTodaysDate();
+        
 
     }
     // Start application
     init();
+
     // Refresh application every second (this is how the date is updating every second)
-    setInterval(init, 1000);
+    // Update date on page every second
+    currentDate = $("#todaysDate");
+    displayTodaysDate();
+    setInterval(displayTodaysDate, 1000);
 
 });
 
