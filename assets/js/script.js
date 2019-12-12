@@ -1,9 +1,19 @@
 var currentDate = null;
 var currentHour = moment().format('h a');
+var currentHour = "1 pm";
+
+// HELP: Is there a better way to do this?
+// Refresh page every 10 seconds to dynamically track and color rows as hours pass.
+function autoRefreshPage() {
+    window.location = window.location.href;
+}
+setInterval('autoRefreshPage()', 10000);
+
 
 
 $(document).ready(function() {
     function init() {
+
         // Create object for calendar rows
         var plans = {
             "0": "",
@@ -45,7 +55,6 @@ $(document).ready(function() {
     setInterval(init, 1000);
 
 });
-
 
 createHourRows();
 trackHourOfDay();
