@@ -39,8 +39,7 @@ $(document).ready(function() {
     }
     // Start application
     init();
-
-    // Refresh application every second (this is how the date is updating every second)
+    
     // Update date on page every second
     currentDate = $("#todaysDate");
     displayTodaysDate();
