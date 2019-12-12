@@ -1,9 +1,8 @@
 var currentDate = null;
 var currentHour = moment().format('h a');
-var currentHour = "1 pm";
 
 // HELP: Is there a better way to do this?
-// Refresh page every 10 seconds to dynamically track and color rows as hours pass.
+// Refresh page every 10 seconds to dynamically track and color code rows as hours pass.
 function autoRefreshPage() {
     window.location = window.location.href;
 }
