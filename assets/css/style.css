@@ -2,15 +2,15 @@ body {
   background-color: #f9f9f9;
 }
 
-.jumbotron {
+body .jumbotron {
   background-color: lightblue;
 }
 
-#calendarList {
+body #calendarList {
   padding: 0;
 }
 
-.disabled .input-box {
+body .disabled .input-box {
   border-color: #bbbbbb;
   background-image: none;
   background-color: transparent;
@@ -18,11 +18,24 @@ body {
   box-shadow: none;
 }
 
-.disabled .icon {
+body .disabled i {
   color: grey;
 }
 
-.icon {
+body main ul li a {
+  color: #008ab7;
+}
+
+body main ul li a:hover, body main ul li a:focus {
+  text-decoration: none;
+  color: #fff;
+}
+
+body main ul li a:hover i, body main ul li a:focus i {
+  background-color: lightblue;
+}
+
+body main ul li a i {
   border: thin solid transparent;
   -webkit-box-shadow: 0px 0px 5px -1px rgba(0, 0, 0, 0.42);
   box-shadow: 0px 0px 5px -1px rgba(0, 0, 0, 0.42);

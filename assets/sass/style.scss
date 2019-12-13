@@ -15,17 +15,28 @@ body {
             -moz-box-shadow: none;
             box-shadow: none;
         }
-        .icon {
+        i {
             color: grey;
         }
     }
-    .icon {
-        border: thin solid transparent;
-        -webkit-box-shadow: 0px 0px 5px -1px rgba(0,0,0,0.42);
-        -moz-box-shadow: 0px 0px 5px -1px rgba(0,0,0,0.42);
-        box-shadow: 0px 0px 5px -1px rgba(0,0,0,0.42);
-        border-radius: 50%;
-        padding: .4em .5em;
+    main ul li a {
+        color: #008ab7;
+        &:hover, &:focus {
+            text-decoration: none;
+            color: #fff;
+            i {
+               background-color: lightblue; 
+            }
+
+        }
+        i {
+            border: thin solid transparent;
+            -webkit-box-shadow: 0px 0px 5px -1px rgba(0,0,0,0.42);
+            -moz-box-shadow: 0px 0px 5px -1px rgba(0,0,0,0.42);
+            box-shadow: 0px 0px 5px -1px rgba(0,0,0,0.42);
+            border-radius: 50%;
+            padding: .4em .5em;
+        }
     }
 }
 
