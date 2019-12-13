@@ -1,5 +1,6 @@
 var currentDate = null;
-var currentHour = moment().format('h a');
+var currentHour = null;
+// var currentHour = moment().format('h a');
 
 $(document).ready(function() {
     function init() {
@@ -43,12 +44,17 @@ $(document).ready(function() {
     // Update date on page every second
     currentDate = $("#todaysDate");
     displayTodaysDate();
+
+    // Every second check time and dynamically move through the hours and color code accordingly
     setInterval(displayTodaysDate, 1000);
+
+    
 
 });
 
 createHourRows();
 trackHourOfDay();
+setInterval(trackHourOfDay, 1000);
 storeEvents();
 
 
@@ -62,7 +68,7 @@ function displayTodaysDate() {
 function createHourRows() {
     // Duplicate 8 more hour rows
     for (var i = 0; i < 8; i++) {
-        $("#calendarList li:first-child").clone().appendTo("#calendarList"); 
+        $("#calendarList li:first-child").clone().appendTo("#calendarList") 
     } 
     // Add data-row number to each calendar row icon button
     $("#calendarList li a").map(function(i, calendarRow) {
@@ -102,7 +108,7 @@ function trackHourOfDay() {
         for (var i = 0; i < hours.length; i++) {
             hourSlots[i].text(hours[i]);
             // If hour is equal to current time, make current time row blue, all previous hours grey and disabled and all following hours white.
-            if (hourSlots[i].text() === currentHour) {
+            if (hourSlots[i].text() === moment().format('h a')) {
                 hourSlots[i].parent().attr("style", "background-color:lightblue;");
                 hourSlots[i].parent().prevAll().attr("style", "background-color:lightgrey;");
                 hourSlots[i].parent().prevAll().addClass("disabled");
